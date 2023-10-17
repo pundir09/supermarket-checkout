@@ -6,7 +6,7 @@ The following scripts ensure the build and deployment of the latest JAR for the 
 ## Prerequisite
 1. This code assumes the existence of an Amazon Elastic Container Registry (ECR) named `testsupermarket-checkout`, where the latest JAR will be pushed.
 2. The domain of the website is assumed to be `testsupermarket.kredmint.com`.
-3. Replace the string xxxxxxxxxx with the AWS account ID.
+3. Replace the string `xxxxxxxxxx` with the AWS account ID.
 
 ## Code Files
 1. **Dockerfile**
