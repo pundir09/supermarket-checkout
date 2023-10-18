@@ -72,11 +72,10 @@ resource "aws_iam_role_policy_attachment" "ecs_execution_attachment" {
 # Load Balancer
 resource "aws_lb" "testsupermarket_lb" {
   name               = "testsupermarket-lb"
-  internal           = true
+  internal           = false
   load_balancer_type = "application"
   security_groups    = ["sg-05768f075d8d0a08b"]
-  subnets            = ["subnet-02fc81f435c1ae6e9", "subnet-07b1d4f6939decda8"]
-  
+  subnets            = ["subnet-0bbc68be572d0422e", "subnet-08b993ad22071887c"] 
 }
 output "lb_dns_name" {
   value = aws_lb.testsupermarket_lb.dns_name
@@ -130,7 +129,7 @@ resource "aws_ecs_service" "testsupermarket_service" {
   desired_count   = 1
 
   network_configuration {
-    subnets = aws_lb.testsupermarket_lb.subnets
+    subnets = ["subnet-02fc81f435c1ae6e9", "subnet-07b1d4f6939decda8"]
     security_groups = ["sg-07decfe068cb552cf"]
   }
 
@@ -171,6 +170,7 @@ resource "aws_cloudfront_distribution" "testsupermarket_cdn" {
 
     forwarded_values {
       query_string = false
+      headers      = ["Host", "Origin"]
 
       cookies {
         forward = "none"
