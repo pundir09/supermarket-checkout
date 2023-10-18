@@ -28,3 +28,8 @@ Below are the stages of the script:
 
 ## Resources Created By Terraform
 The Terraform script will create an AWS ECS cluster, AWS ECS Fargate Task Definition, AWS ECS Fargate service, AWS private ALB, its respective target group, and a CloudFront distribution.
+
+## Screen Shot Of the Deployed Application
+
+<img width="1436" alt="Screenshot 2023-10-18 at 7 41 18 AM" src="https://github.com/pundir09/supermarket-checkout/assets/63442618/40b304af-cfb8-43fc-8fb1-9f28fb4afdca">
+
